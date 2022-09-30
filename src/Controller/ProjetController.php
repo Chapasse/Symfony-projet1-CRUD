@@ -13,14 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProjetController extends AbstractController
 {
-    #[Route('/',name: 'home')]
-    public function home(): Response
-    {
-        return $this->render('projet/index.html.twig');
-    }
-
-    #[Route('/projet', name: 'employe_liste')]
-    #[Route("/projet/edit/{id}", name: "employe_edit")]
+    #[Route('/', name: 'employe_liste')]
+    #[Route("/edit/{id}", name: "employe_edit")]
     public function form(EmployesRepository $repo, Request $globals, EntityManagerInterface $manager, Employes $employe = null)
     {
         $employes = $repo->findAll();
