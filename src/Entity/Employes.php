@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\EmployesRepository;
+use DateInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EmployesRepository;
+use DateTime;
+use DateTimeInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EmployesRepository::class)]
@@ -43,10 +46,9 @@ class Employes
     #[Assert\NotBlank(message:"Ce champ ne peut pas être vide")]
     private ?int $_salaire = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     #[Assert\NotBlank(message:"Ce champ ne peut pas être vide")]
-    #[Assert\Length(min:5, max:255, minMessage:"Pas assez de caractères. Il faut au moins {{ limit }} caractères")]
-    private ?string $_datenaissance = null;
+    private ?DateTimeInterface $_datenaissance = null;
 
     public function getId(): ?int
     {
@@ -137,12 +139,12 @@ class Employes
         return $this;
     }
 
-    public function getDatenaissance(): ?string
+    public function getDatenaissance(): ?\DateTimeInterface
     {
         return $this->_datenaissance;
     }
 
-    public function setDatenaissance(string $_datenaissance): self
+    public function setDatenaissance(\DateTimeInterface $_datenaissance): self
     {
         $this->_datenaissance = $_datenaissance;
 

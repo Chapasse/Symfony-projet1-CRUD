@@ -21,7 +21,7 @@ class EmployesFixtures extends Fixture
                         ->setAdresse("Adresse n°$i")
                         ->setPoste("Poste n°$i")
                         ->setSalaire(1250*$i)
-                        ->setDatenaissance(date_create("1994-01-10"));                    
+                        ->setDatenaissance(new \DateTime('10/01/1994'));                    
             
             $manager->persist($employes);
         }
