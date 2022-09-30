@@ -1,0 +1,13 @@
+créer fichier .htaccess
+créer fichier Procfile
+changer l'encodage de Procfile en utf-8 si nécessaire
+ajouter la commande de migration dans composer.json
+envoyer projet sur github
+
+SUR HEROKU :
+
+créer un nouveau projet
+lier le projet à celui de github
+ajouter la BDD (jawsdb mysql)
+ajouter les variables d'env DATABASE_URL & APP_ENV
+déployer
