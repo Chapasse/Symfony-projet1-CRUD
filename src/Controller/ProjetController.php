@@ -43,7 +43,7 @@ class ProjetController extends AbstractController
         ]);
     }
 
-    #[Route("/projet/delete/{id}", name:"employe_delete")]
+    #[Route("/delete/{id}", name:"employe_delete")]
     public function delete(EntityManagerInterface $manager, Employes $employe)
     {
         $manager->remove($employe);
